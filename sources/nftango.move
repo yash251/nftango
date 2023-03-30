@@ -44,6 +44,9 @@ module overmind::nftango {
         account_address: address,
     ) {
         // TODO: assert that `NFTangoStore` exists
+        // assert is a builtin, macro-like operation provided by the Move compiler. It takes two arguments, a condition of type bool and a code of type u64
+        // assert!(condition: bool, code: u64)
+        assert!(NFTangoStore::exists(account_address), ERROR_NFTANGO_STORE_EXISTS)
     }
 
     public fun assert_nftango_store_does_not_exist(
